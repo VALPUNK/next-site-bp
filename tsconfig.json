@@ -1,0 +1,51 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "outDir": "build/lib",
+    "module": "commonjs",
+    "target": "es5",
+    "lib": ["es5", "es6", "es7", "es2017", "dom"],
+    "allowJs": true,
+    "sourceMap": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "strictNullChecks": false,
+    "suppressImplicitAnyIndexErrors": true,
+    "allowSyntheticDefaultImports": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": true,
+    "removeComments": false,
+    "preserveConstEnums": true,
+    "skipLibCheck": true,
+    "jsx": "react",
+    "moduleResolution": "node",
+    "rootDirs": [".", "components", "lib"],
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "typeRoots": ["./node_modules/@types", "./lib/types"],
+    "baseUrl": ".",
+    "paths": {
+      "~/components/*": ["./components/*"],
+      "~/constants/*": ["./constants/*"],
+      "~/lib/*": ["./lib/*"],
+      "~/types/*": ["./types/*"],
+      "~/utils/*": ["./utils/*"],
+      "~/theme/*": ["./theme/*"]
+    },
+    // "rootDir": ".",
+    "noImplicitUseStrict": true
+  },
+  "exclude": [
+    "node_modules",
+    "build",
+    "**/*.spec.ts",
+    "**/*.spec.tsx",
+    "**/*.test.ts",
+    "**/*.test.tsx"
+  ],
+  "include": [
+    "components/**/*"
+  ]
+}

@@ -1,0 +1,5 @@
+# Next Boilerplate
+
+## Uses
+
+* TypeScript
