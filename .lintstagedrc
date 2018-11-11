@@ -1,0 +1,15 @@
+{
+  "linters": {
+    "*.ts": [
+      "tslint"
+    ],
+    "*.tsx": [
+      "tslint"
+    ],
+    "**/*.+(js|jsx|ts|tsx|graphql)": [
+      "prettier --write",
+      "git add"
+    ]
+
+  }
+}
