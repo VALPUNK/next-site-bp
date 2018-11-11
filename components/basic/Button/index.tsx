@@ -1,10 +1,10 @@
 import * as React from "react"
+import styled from "styled-components"
 
 export interface Props {
   /** What you sandwhich in the tags */
   children: React.ReactNode
   /**
-   *
    * To flag for error styling
    * @default false
    */
@@ -18,10 +18,19 @@ export interface Props {
 
 const Button = (props: Props) => {
   return (
-    <button style={{ backgroundColor: props.error ? "red" : props.bgColor }}>
+    <Main {...props} onClick={props.onClick}>
       {props.children}
-    </button>
+    </Main>
   )
 }
+
+const Main = styled.span<Props>`
+  background-color: ${props => (props.error ? "red" : props.bgColor)};
+  color: white;
+  border-radius: 8px;
+  padding: 5px 20px;
+  cursor: pointer;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+`
 
 export default Button

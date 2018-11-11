@@ -1,5 +1,5 @@
 {
-  "name": "happily-site",
+  "name": "next-site-bp",
   "version": "0.2.5",
   "author": "",
   "license": "ISC",
@@ -9,7 +9,9 @@
     "start": "next start",
     "test": "jest",
     "generate": "apollo schema:download lib/types/download.json --endpoint=http://localhost:4000 && apollo codegen:generate --queries=**/*.tsx  --schema=lib/types/download.json --target=typescript",
-    "storybook": "start-storybook -p 9001 -c .storybook"
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "lint": "tslint -c tslint.json '**/*.tsx'",
+    "format": "prettier --write \"**/*.+(js|jsx|json|ts|tsx|md|graphql)\""
   },
   "dependencies": {
     "@material-ui/core": "^3.2.2",
@@ -81,6 +83,7 @@
     "enzyme": "^3.4.4",
     "enzyme-adapter-react-16": "^1.2.0",
     "jest": "^23.5.0",
+    "prettier": "^1.15.1",
     "react-addons-test-utils": "^15.6.2",
     "react-docgen-typescript-webpack-plugin": "^1.1.0",
     "react-test-renderer": "^16.4.2",
