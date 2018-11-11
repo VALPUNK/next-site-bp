@@ -38,7 +38,7 @@ export const actionTypes = {
   IS_FINISHED: "IS_FINISHED",
   HANDLE_NEXT_STEP: "HANDLE_NEXT_STEP",
   HANDLE_BACK_STEP: "HANDLE_BACK_STEP",
-  SET_CUSTOMER_ID: "SET_CUSTOMER_ID"
+  SET_CUSTOMER_ID: "SET_CUSTOMER_ID",
 }
 
 export type PlanEnum = "PERSONAL" | "BUSINESS"
@@ -54,15 +54,15 @@ export const initialState: OnBoardingState = {
     planId: "",
     planDetails: [{ id: "", value: "" }],
     planPrice: 0,
-    planName: ""
+    planName: "",
   },
   accountCreated: false,
   finished: false,
   activeStep: 0,
   customer: {
     customerId: "",
-    stripeCustomerId: ""
-  }
+    stripeCustomerId: "",
+  },
 }
 
 interface Action {
@@ -75,7 +75,7 @@ interface Action {
 
 export const onBoardingReducer = (
   state: OnBoardingState = initialState,
-  action: Action
+  action: Action,
 ) => {
   switch (action.type) {
     case actionTypes.SET_CUSTOMER_ID:
@@ -83,33 +83,33 @@ export const onBoardingReducer = (
       return Object.assign({}, state, {
         customer: {
           customerId: action.customer.customerId,
-          stripeCustomerId: action.customer.stripeCustomerId
-        }
+          stripeCustomerId: action.customer.stripeCustomerId,
+        },
       })
 
     case actionTypes.SET_CURRENT_PLAN:
       console.log("redux action", action)
       return Object.assign({}, state, {
-        selectedProduct: action.plan
+        selectedProduct: action.plan,
       })
     case actionTypes.IS_ACCOUNT_CREATED:
       return Object.assign({}, state, {
-        accountCreated: action.created
+        accountCreated: action.created,
       })
     case actionTypes.IS_FINISHED:
       return Object.assign({}, state, {
-        finished: action.finished
+        finished: action.finished,
       })
     case actionTypes.HANDLE_NEXT_STEP:
       console.log("hello", state.activeStep)
 
       return Object.assign({}, state, {
-        activeStep: state.activeStep + 1
+        activeStep: state.activeStep + 1,
       })
 
     case actionTypes.HANDLE_BACK_STEP:
       return Object.assign({}, state, {
-        activeStep: state.activeStep - 1
+        activeStep: state.activeStep - 1,
       })
     default:
       return state
@@ -127,7 +127,7 @@ export const setCurrentPlan = (plan: ProductPlan) => (dispatch: Dispatch) => {
 }
 
 export const setCustomerId = (customer: CustomerInfo) => (
-  dispatch: Dispatch
+  dispatch: Dispatch,
 ) => {
   return dispatch({ type: actionTypes.SET_CUSTOMER_ID, customer })
 }

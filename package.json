@@ -11,7 +11,7 @@
     "generate": "apollo schema:download lib/types/download.json --endpoint=http://localhost:4000 && apollo codegen:generate --queries=**/*.tsx  --schema=lib/types/download.json --target=typescript",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "lint": "tslint -c tslint.json '**/*.tsx'",
-    "format": "prettier --write \"**/*.+(js|jsx|json|ts|tsx|md|graphql)\""
+    "format": "prettier --write \"**/*.+(js|jsx|ts|tsx|graphql)\""
   },
   "dependencies": {
     "@material-ui/core": "^3.2.2",

@@ -7,12 +7,12 @@ import { Layout } from "~/components/templates"
 const styles = (theme: Theme) => ({
   root: {
     flexGrow: 1,
-    backgroundColor: theme.palette.background.paper
+    backgroundColor: theme.palette.background.paper,
   },
   indicator: {
     backgroundColor: "white",
-    height: 5
-  }
+    height: 5,
+  },
 })
 
 interface Props {

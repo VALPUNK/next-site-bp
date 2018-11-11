@@ -10,7 +10,7 @@ import * as React from "react"
 
 const styles = () =>
   createStyles({
-    root: { backgroundColor: "white", fontFamily: "Roboto" }
+    root: { backgroundColor: "white", fontFamily: "Roboto" },
   })
 interface Props extends WithStyles<typeof styles> {
   history?: History
@@ -27,7 +27,7 @@ class MobileNavbar extends React.Component<Props, State> {
     super(props)
     this.state = {
       auth: true,
-      anchorEl: null
+      anchorEl: null,
     }
   }
 
@@ -75,11 +75,11 @@ class MobileNavbar extends React.Component<Props, State> {
                 anchorEl={anchorEl}
                 anchorOrigin={{
                   vertical: "top",
-                  horizontal: "right"
+                  horizontal: "right",
                 }}
                 transformOrigin={{
                   vertical: "top",
-                  horizontal: "right"
+                  horizontal: "right",
                 }}
                 open={open}
                 onClose={this.handleClose}

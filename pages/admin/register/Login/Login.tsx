@@ -25,7 +25,7 @@ export const Login = ({ login, setEmail, setPassword }: LoginProps) => {
           label="EMAIL"
           placeholder="Email"
           style={{
-            width: "100%"
+            width: "100%",
           }}
           margin="normal"
           onChange={setEmail}
@@ -38,7 +38,7 @@ export const Login = ({ login, setEmail, setPassword }: LoginProps) => {
           label="PASSWORD"
           placeholder="PASSWORD"
           style={{
-            width: "100%"
+            width: "100%",
           }}
           margin="normal"
           onChange={setPassword}
@@ -53,7 +53,7 @@ export const Login = ({ login, setEmail, setPassword }: LoginProps) => {
           variant="contained"
           style={{
             width: "100%",
-            marginTop: 30
+            marginTop: 30,
           }}
         >
           Login

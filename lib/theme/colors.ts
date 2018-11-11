@@ -19,5 +19,5 @@ export {
   clientColor,
   linkColor,
   slightGrey,
-  purpleColor
+  purpleColor,
 }

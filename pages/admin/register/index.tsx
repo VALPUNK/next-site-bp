@@ -14,7 +14,7 @@ export default class Index extends React.Component<Props, State> {
   constructor(props: any) {
     super(props)
     this.state = {
-      value: 1
+      value: 1,
     }
   }
 

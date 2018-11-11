@@ -37,8 +37,8 @@ declare module "react-jss" {
 
   function injectSheet<ClassKey extends string>(
     style: StyleRules<ClassKey>,
-    options?: any
+    options?: any,
   ): <P>(
-    component: React.ComponentType<P & WithStyles<ClassKey>>
+    component: React.ComponentType<P & WithStyles<ClassKey>>,
   ) => React.ComponentType<P & StyledComponentProps<ClassKey>>
 }

@@ -3,13 +3,13 @@ import { composeWithDevTools } from "redux-devtools-extension"
 import thunkMiddleware from "redux-thunk"
 import {
   initialState as initState,
-  onBoardingReducer
+  onBoardingReducer,
 } from "~/lib/reducers/OnboardingReducer"
 
 export function initializeStore(initialState = initState) {
   return createStore(
     onBoardingReducer,
     initialState,
-    composeWithDevTools(applyMiddleware(thunkMiddleware))
+    composeWithDevTools(applyMiddleware(thunkMiddleware)),
   )
 }

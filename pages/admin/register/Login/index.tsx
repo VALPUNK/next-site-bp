@@ -24,7 +24,7 @@ class Index extends React.Component<Props, State> {
     this.state = {
       email: "",
       password: "",
-      value: 0
+      value: 0,
     }
     this.setPassword.bind(this)
     this.setEmail.bind(this)
@@ -33,13 +33,13 @@ class Index extends React.Component<Props, State> {
 
   public setPassword = (event: React.ChangeEvent<HTMLInputElement>): void => {
     this.setState({
-      password: event.target.value
+      password: event.target.value,
     })
   }
 
   public setEmail = (event: React.ChangeEvent<HTMLInputElement>): void => {
     this.setState({
-      email: event.target.value
+      email: event.target.value,
     })
   }
 
@@ -51,8 +51,8 @@ class Index extends React.Component<Props, State> {
         mutation: LOGIN_MUTATION,
         variables: {
           email,
-          password
-        }
+          password,
+        },
       })
       console.log(result)
       if (result.errors) {
@@ -93,7 +93,7 @@ const LOGIN_MUTATION = gql`
 `
 const enhance = compose(
   withApollo,
-  withRouter
+  withRouter,
 )
 
 const EnhancedComponent = enhance(Index)

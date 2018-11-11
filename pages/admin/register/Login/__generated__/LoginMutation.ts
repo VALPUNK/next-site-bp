@@ -28,14 +28,14 @@ export interface LoginMutationVariables {
 export enum QuestionTypes {
   PASSWORD = "PASSWORD",
   SWITCH = "SWITCH",
-  TEXT = "TEXT"
+  TEXT = "TEXT",
 }
 
 export enum StripeIntervalEnum {
   day = "day",
   month = "month",
   week = "week",
-  year = "year"
+  year = "year",
 }
 
 /**

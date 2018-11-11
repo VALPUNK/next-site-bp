@@ -64,8 +64,7 @@ class MyApp extends App<Props> {
                 sheetsManager={this.pageContext.sheetsManager}
               >
                 <CssBaseline>
-                  {
-                  Component.Layout ? (
+                  {Component.Layout ? (
                     <Component.Layout>
                       <Component
                         pageContext={this.pageContext}
@@ -87,7 +86,7 @@ class MyApp extends App<Props> {
 
 const enhance = compose(
   withApollo,
-  withReduxStore
+  withReduxStore,
 )
 
 const EnhancedComponent = enhance(MyApp)

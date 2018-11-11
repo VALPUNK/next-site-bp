@@ -12,12 +12,12 @@ const styles = () =>
   createStyles({
     root: {
       backgroundColor: "white",
-      fontFamily: "Roboto"
+      fontFamily: "Roboto",
     },
     toolbar: {
       paddingLeft: "10%",
-      paddingRight: "10%"
-    }
+      paddingRight: "10%",
+    },
   })
 
 interface Props extends WithStyles<typeof styles> {
@@ -35,7 +35,7 @@ class MonitorNavbar extends React.Component<Props, State> {
     super(props)
     this.state = {
       auth: true,
-      anchorEl: null
+      anchorEl: null,
     }
   }
 

@@ -3,7 +3,7 @@
 import green from "@material-ui/core/colors/green"
 import {
   createGenerateClassName,
-  createMuiTheme
+  createMuiTheme,
 } from "@material-ui/core/styles"
 import { SheetsRegistry } from "jss"
 import { DARKBLUE, NOD_GREEN } from "./constants/constants"
@@ -59,37 +59,37 @@ function createMyTheme(options: ThemeOptions) {
     //   }
     // },
     typography: {
-      fontFamily: "Poppins"
+      fontFamily: "Poppins",
     },
     palette: {
       background: {
-        default: "#ECF5F8"
-      }
+        default: "#ECF5F8",
+      },
     },
-    ...options
+    ...options,
   })
 }
 
 export const theme = createMyTheme({
   appBar: {
     backgroundColor: "white",
-    fontFamily: "Roboto"
+    fontFamily: "Roboto",
   },
   palette: {
     primary: {
       // light: purple[100],
       main: DARKBLUE,
-      dark: DARKBLUE
+      dark: DARKBLUE,
     },
     secondary: {
       light: green[300],
       main: green[500],
-      dark: green[700]
-    }
+      dark: green[700],
+    },
   },
   typography: {
-    fontFamily: "Roboto"
-  }
+    fontFamily: "Roboto",
+  },
 })
 
 function createPageContext() {
@@ -100,7 +100,7 @@ function createPageContext() {
     // This is needed in order to inject the critical CSS.
     sheetsRegistry: new SheetsRegistry(),
     // The standard class name generator.
-    generateClassName: createGenerateClassName()
+    generateClassName: createGenerateClassName(),
   }
 }
 

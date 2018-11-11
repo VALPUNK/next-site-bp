@@ -31,36 +31,36 @@ const styles = (theme: Theme) =>
       zIndex: 1,
       overflow: "hidden",
       position: "relative",
-      display: "flex"
+      display: "flex",
     },
     appBar: {
       zIndex: theme.zIndex.drawer + 1,
       transition: theme.transitions.create(["width", "margin"], {
         easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.leavingScreen
+        duration: theme.transitions.duration.leavingScreen,
       }),
-      backgroundColor: primaryColor
+      backgroundColor: primaryColor,
     },
     appBarShift: {
       marginLeft: drawerWidth,
       width: `calc(100% - ${drawerWidth}px)`,
       transition: theme.transitions.create(["width", "margin"], {
         easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.enteringScreen
-      })
+        duration: theme.transitions.duration.enteringScreen,
+      }),
     },
     content: {
       flexGrow: 1,
       backgroundColor: theme.palette.background.default,
       padding: theme.spacing.unit * 3,
-      overflowY: "scroll"
+      overflowY: "scroll",
     },
     menuButton: {
       marginLeft: 12,
-      marginRight: 36
+      marginRight: 36,
     },
     hide: {
-      display: "none"
+      display: "none",
     },
     drawerPaper: {
       position: "relative",
@@ -68,27 +68,27 @@ const styles = (theme: Theme) =>
       width: drawerWidth,
       transition: theme.transitions.create("width", {
         easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.enteringScreen
-      })
+        duration: theme.transitions.duration.enteringScreen,
+      }),
     },
     drawerPaperClose: {
       overflowX: "hidden",
       transition: theme.transitions.create("width", {
         easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.leavingScreen
+        duration: theme.transitions.duration.leavingScreen,
       }),
       width: theme.spacing.unit * 7,
       [theme.breakpoints.up("sm")]: {
-        width: theme.spacing.unit * 9
-      }
+        width: theme.spacing.unit * 9,
+      },
     },
     toolbar: {
       display: "flex",
       alignItems: "center",
       justifyContent: "flex-end",
       padding: "0 8px",
-      ...theme.mixins.toolbar
-    }
+      ...theme.mixins.toolbar,
+    },
   })
 
 interface ClassProps {
@@ -119,7 +119,7 @@ class DashboardAdmin extends React.Component<Props, State> {
     super(props)
     this.state = {
       open: false,
-      anchorEl: undefined
+      anchorEl: undefined,
     }
   }
 
@@ -161,7 +161,7 @@ class DashboardAdmin extends React.Component<Props, State> {
             position="absolute"
             className={classNames(
               classes.appBar,
-              this.state.open && classes.appBarShift
+              this.state.open && classes.appBarShift,
             )}
           >
             <Toolbar disableGutters={!this.state.open}>
@@ -171,7 +171,7 @@ class DashboardAdmin extends React.Component<Props, State> {
                 onClick={this.handleDrawerOpen}
                 className={classNames(
                   classes.menuButton,
-                  this.state.open && classes.hide
+                  this.state.open && classes.hide,
                 )}
               >
                 <MenuIcon />
@@ -205,11 +205,11 @@ class DashboardAdmin extends React.Component<Props, State> {
                   anchorEl={this.state.anchorEl}
                   anchorOrigin={{
                     vertical: "top",
-                    horizontal: "right"
+                    horizontal: "right",
                   }}
                   transformOrigin={{
                     vertical: "top",
-                    horizontal: "right"
+                    horizontal: "right",
                   }}
                   open={open}
                   onClose={this.handleClose}
@@ -224,15 +224,15 @@ class DashboardAdmin extends React.Component<Props, State> {
             classes={{
               paper: classNames(
                 classes.drawerPaper,
-                !this.state.open && classes.drawerPaperClose
-              )
+                !this.state.open && classes.drawerPaperClose,
+              ),
             }}
             style={
               !this.state.open
                 ? {
                     position: "relative",
                     whiteSpace: "nowrap",
-                    overflowX: "hidden"
+                    overflowX: "hidden",
                   }
                 : {}
             }
@@ -270,7 +270,7 @@ class DashboardAdmin extends React.Component<Props, State> {
 
 const enhance = compose(
   withStyles(styles, { withTheme: true }),
-  withRouter
+  withRouter,
 )
 
 const dashboardContainer = enhance(DashboardAdmin)
