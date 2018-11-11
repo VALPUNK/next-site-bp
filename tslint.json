@@ -4,6 +4,7 @@
     "exclude": [
       "config/**/*.js",
       "node_modules/**/*.ts",
+      "node_modules/**/*.tsx",
       "src/**/*.toDelete.tsx",
       "src/**/*.toDelete.ts"
     ]
@@ -12,13 +13,16 @@
     "no-submodule-imports": false,
     "no-implicit-dependencies": false,
     "jsx-boolean-value": ["never"],
-    "interface-name" : [true, "never-prefix"],
+    "interface-name": [true, "never-prefix"],
     "object-literal-sort-keys": false,
     "no-console": false,
-    "ordered-imports": [true, {
-      "import-sources-order": "any",
-      "named-imports-order": "case-insensitive"
-    }],
+    "ordered-imports": [
+      true,
+      {
+        "import-sources-order": "any",
+        "named-imports-order": "case-insensitive"
+      }
+    ],
     "variable-name": false,
     "max-classes-per-file": false,
     "no-empty-interface": false,

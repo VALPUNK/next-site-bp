@@ -15,7 +15,6 @@ export default class Meta extends React.PureComponent {
           />
         </Head>
         <style jsx global>{`
-
           body {
             margin: 0;
             font-family: "Roboto", sans-serif;

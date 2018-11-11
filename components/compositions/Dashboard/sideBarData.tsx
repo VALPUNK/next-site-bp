@@ -25,6 +25,5 @@ export const mailFolderListItems = (
         <ListItemText primary="Example" />
       </ListItem>
     </Link>
-
   </div>
 )

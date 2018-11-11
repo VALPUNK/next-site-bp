@@ -15,7 +15,7 @@ export const loadState = () => {
 export const saveState = (state: OnBoardingState) => {
   try {
     const serializedState = JSON.stringify(state)
-    localStorage.setItem('state', serializedState)
+    localStorage.setItem("state", serializedState)
   } catch (err) {
     // ignore
   }

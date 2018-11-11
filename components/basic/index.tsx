@@ -1,7 +1,4 @@
 import Meta from "./Meta"
-import Button from './Button'
+import Button from "./Button"
 
-export {
-  Meta,
-  Button
-}
+export { Meta, Button }

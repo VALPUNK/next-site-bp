@@ -1,4 +1,4 @@
-export const AUTH_TOKEN = 'happily-auth-token'
+export const AUTH_TOKEN = "happily-auth-token"
 export const HAPPY_GREEN = "#11AB51"
 export const NOD_GREEN = "#33848D"
 export const DARK_GREEN = "#286F77"

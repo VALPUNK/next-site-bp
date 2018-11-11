@@ -2,7 +2,7 @@ const withTypescript = require("@zeit/next-typescript")
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin")
 const withCSS = require("@zeit/next-css")
 require("dotenv").config()
-const path = require('path')
+const path = require("path")
 const Dotenv = require("dotenv-webpack")
 
 module.exports = withTypescript(

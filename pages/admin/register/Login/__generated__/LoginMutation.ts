@@ -1,5 +1,3 @@
-
-
 /* tslint:disable */
 // This file was automatically generated and should not be edited.
 
@@ -8,16 +6,16 @@
 // ====================================================
 
 export interface LoginMutation_login {
-  token: string;
+  token: string
 }
 
 export interface LoginMutation {
-  login: LoginMutation_login;
+  login: LoginMutation_login
 }
 
 export interface LoginMutationVariables {
-  email: string;
-  password: string;
+  email: string
+  password: string
 }
 
 /* tslint:disable */
@@ -30,23 +28,23 @@ export interface LoginMutationVariables {
 export enum QuestionTypes {
   PASSWORD = "PASSWORD",
   SWITCH = "SWITCH",
-  TEXT = "TEXT",
+  TEXT = "TEXT"
 }
 
 export enum StripeIntervalEnum {
   day = "day",
   month = "month",
   week = "week",
-  year = "year",
+  year = "year"
 }
 
 /**
- * 
+ *
  */
 export interface AnswerQuestionnaireInput {
-  questionId: string;
-  answer: string;
-  answerId?: string | null;
+  questionId: string
+  answer: string
+  answerId?: string | null
 }
 
 //==============================================================

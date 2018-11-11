@@ -16,6 +16,7 @@ import withReduxStore from "../lib/withReduxStore"
 interface Props {
   apolloClient: ApolloClient<any>
   reduxStore: Store
+  Component?: any
 }
 
 export interface PageContext {
@@ -48,7 +49,6 @@ class MyApp extends App<Props> {
   public render() {
     const { Component, pageProps, apolloClient, reduxStore } = this.props
 
-
     return (
       <Container>
         <Provider store={reduxStore}>
@@ -65,16 +65,12 @@ class MyApp extends App<Props> {
               >
                 <CssBaseline>
                   {
-                    // @ts-ignore
                   Component.Layout ? (
-                    // @ts-ignore
                     <Component.Layout>
                       <Component
                         pageContext={this.pageContext}
                         {...pageProps}
                       />
-                      {/*
-                      // @ts-ignore */}
                     </Component.Layout>
                   ) : (
                     <Component pageContext={this.pageContext} {...pageProps} />

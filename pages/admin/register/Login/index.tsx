@@ -1,20 +1,20 @@
-import { ApolloClient } from 'apollo-client'
-import gql from 'graphql-tag'
-import * as React from 'react'
-import { withApollo,  } from 'react-apollo'
-import { Login } from './Login'
-import { compose } from 'recompose';
-import { withRouter, WithRouterProps } from 'next/router';
-import { AUTH_TOKEN } from '~/lib/constants/constants';
-import { LoginMutation } from './__generated__/LoginMutation';
+import { ApolloClient } from "apollo-client"
+import gql from "graphql-tag"
+import * as React from "react"
+import { withApollo } from "react-apollo"
+import { Login } from "./Login"
+import { compose } from "recompose"
+import { withRouter, WithRouterProps } from "next/router"
+import { AUTH_TOKEN } from "~/lib/constants/constants"
+import { LoginMutation } from "./__generated__/LoginMutation"
 
-interface Props extends WithRouterProps{
-  client: ApolloClient<any>,
+interface Props extends WithRouterProps {
+  client: ApolloClient<any>
 }
 
 interface State {
-  email: string,
-  password: string,
+  email: string
+  password: string
   value: number
 }
 
@@ -22,15 +22,14 @@ class Index extends React.Component<Props, State> {
   constructor(props: any) {
     super(props)
     this.state = {
-      email: '',
-      password: '',
+      email: "",
+      password: "",
       value: 0
     }
     this.setPassword.bind(this)
     this.setEmail.bind(this)
     this.login.bind(this)
   }
-
 
   public setPassword = (event: React.ChangeEvent<HTMLInputElement>): void => {
     this.setState({
@@ -45,26 +44,28 @@ class Index extends React.Component<Props, State> {
   }
 
   public login = async () => {
-    const { email, password} = this.state
+    const { email, password } = this.state
     try {
       const result = await this.props.client.mutate<LoginMutation>({
         errorPolicy: "all",
         mutation: LOGIN_MUTATION,
         variables: {
           email,
-          password,
-        },
+          password
+        }
       })
       console.log(result)
-      if(result.errors) {
+      if (result.errors) {
         alert(result.errors[0].message)
       }
-      const { token } = result.data ? result.data.login : console.log('no data in result found')
+      const { token } = result.data
+        ? result.data.login
+        : console.log("no data in result found")
       await this.props.client.resetStore()
       this.saveUserData(token)
-      this.props.router.push('/admin')
+      this.props.router.push("/admin")
     } catch (e) {
-      console.log('caught ' + e)
+      console.log("caught " + e)
     }
   }
 
@@ -73,7 +74,7 @@ class Index extends React.Component<Props, State> {
   }
 
   public render() {
-    return(
+    return (
       <Login
         setPassword={this.setPassword}
         setEmail={this.setEmail}
@@ -82,7 +83,6 @@ class Index extends React.Component<Props, State> {
     )
   }
 }
-
 
 const LOGIN_MUTATION = gql`
   mutation LoginMutation($email: String!, $password: String!) {

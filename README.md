@@ -2,4 +2,4 @@
 
 ## Uses
 
-* TypeScript
+- TypeScript

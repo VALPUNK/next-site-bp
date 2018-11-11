@@ -1,24 +1,24 @@
-import AppBar from "@material-ui/core/AppBar";
-import Divider from "@material-ui/core/Divider";
-import Drawer from "@material-ui/core/Drawer";
-import IconButton from "@material-ui/core/IconButton";
-import List from "@material-ui/core/List";
-import Menu from "@material-ui/core/Menu";
-import MenuItem from "@material-ui/core/MenuItem";
-import { createStyles, Theme, withStyles } from "@material-ui/core/styles";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
-import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import MenuIcon from "@material-ui/icons/Menu";
-import SettingsIcon from "@material-ui/icons/Settings";
-import * as classNames from "classnames";
-import { withRouter, WithRouterProps } from "next/router";
-import * as React from "react";
-import { compose } from "recompose";
-import { Meta } from "~/components/basic";
-import { primaryColor } from "~/lib/theme/colors";
-import { mailFolderListItems } from "./sideBarData";
+import AppBar from "@material-ui/core/AppBar"
+import Divider from "@material-ui/core/Divider"
+import Drawer from "@material-ui/core/Drawer"
+import IconButton from "@material-ui/core/IconButton"
+import List from "@material-ui/core/List"
+import Menu from "@material-ui/core/Menu"
+import MenuItem from "@material-ui/core/MenuItem"
+import { createStyles, Theme, withStyles } from "@material-ui/core/styles"
+import Toolbar from "@material-ui/core/Toolbar"
+import Typography from "@material-ui/core/Typography"
+import ChevronLeftIcon from "@material-ui/icons/ChevronLeft"
+import ChevronRightIcon from "@material-ui/icons/ChevronRight"
+import MenuIcon from "@material-ui/icons/Menu"
+import SettingsIcon from "@material-ui/icons/Settings"
+import * as classNames from "classnames"
+import { withRouter, WithRouterProps } from "next/router"
+import * as React from "react"
+import { compose } from "recompose"
+import { Meta } from "~/components/basic"
+import { primaryColor } from "~/lib/theme/colors"
+import { mailFolderListItems } from "./sideBarData"
 
 const drawerWidth = 240
 
@@ -231,10 +231,10 @@ class Dashboard extends React.Component<Props, State> {
             style={
               !this.state.open
                 ? {
-                  position: "relative",
-                  whiteSpace: "nowrap",
-                  overflowX: "hidden"
-                }
+                    position: "relative",
+                    whiteSpace: "nowrap",
+                    overflowX: "hidden"
+                  }
                 : {}
             }
             open={this.state.open}
@@ -252,8 +252,8 @@ class Dashboard extends React.Component<Props, State> {
                 {theme.direction === "rtl" ? (
                   <ChevronRightIcon />
                 ) : (
-                    <ChevronLeftIcon />
-                  )}
+                  <ChevronLeftIcon />
+                )}
               </IconButton>
             </div>
             <Divider />

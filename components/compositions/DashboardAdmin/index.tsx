@@ -275,4 +275,3 @@ const enhance = compose(
 
 const dashboardContainer = enhance(DashboardAdmin)
 export default dashboardContainer as typeof DashboardAdmin
-
