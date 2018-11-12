@@ -1,6 +1,6 @@
 {
   "linters": {
-    "*.tsx": [
+    "{*.tsx, *.ts}": [
       "tslint"
     ],
     "*.+(js|jsx|ts|tsx|graphql)": [
