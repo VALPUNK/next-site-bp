@@ -7,5 +7,5 @@ import Button from "."
 test("renders a button with text", () => {
   const { getByText } = render(<Button>Some Text</Button>)
   const button = getByText(/Some Text/i)
-  expect(button).toHaveTextContent(/Some Text/i)
+  expect(button).toHaveTextContent(/Some Tet/i)
 })
