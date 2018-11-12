@@ -17,6 +17,8 @@ export interface Props {
 }
 
 const Button = (props: Props) => {
+  const b = "hello"
+  console.log(b)
   return (
     <Main {...props} onClick={props.onClick}>
       {props.children}
