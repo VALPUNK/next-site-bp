@@ -15,8 +15,7 @@
     "format": "yarn prettier -- --write",
     "prettier": "prettier \"**/*.+(js|jsx|ts|tsx|graphql)\"",
     "validate": "yarn lint && yarn prettier -- --list-different",
-    "precommit": "yarn lint-staged",
-    "post-merge": "yarn lint-staged && test"
+    "precommit": "yarn lint-staged"
   },
   "dependencies": {
     "@material-ui/core": "^3.2.2",
