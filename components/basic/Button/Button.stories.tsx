@@ -10,9 +10,5 @@ import Button from "."
       {text("Text for the button", "123")}
     </Button>
   ))
-  .add("Error", () => (
-    <Button error onClick={() => console.log("hi")}>
-      1234567
-    </Button>
-  ))
+  .add("Error", () => <Button error>1234567</Button>)
 // .addWithJSX("Error", () => <Button error>1234567</Button>)
