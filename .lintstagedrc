@@ -1,9 +1,12 @@
 {
   "linters": {
-    "*/**.+(ts|tsx)": [
-      "tslint -c tslint.json"
+    "*.+(ts|tsx)": [
+      "tslint"
     ],
-    "*/**.+(js|jsx|ts|tsx|graphql)": [
+    "*.tsx": [
+      "tslint"
+    ],
+    "*.+(js|jsx|ts|tsx|graphql)": [
       "prettier --write",
       "git add"
     ]
