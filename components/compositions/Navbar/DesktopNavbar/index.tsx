@@ -20,10 +20,7 @@ const styles = () =>
     },
   })
 
-interface Props extends WithStyles<typeof styles> {
-  history?: History
-  title: string
-}
+interface Props extends WithStyles<typeof styles> {}
 
 interface State {
   auth: boolean
@@ -47,6 +44,12 @@ class MonitorNavbar extends React.Component<Props, State> {
     this.setState({ anchorEl: undefined })
   }
 
+  public NagigateTo = (routeName: string) => (
+    _event: React.MouseEvent<HTMLElement>,
+  ) => {
+    Router.push(routeName)
+  }
+
   public render() {
     // const { classes } = this.props
 
@@ -58,7 +61,7 @@ class MonitorNavbar extends React.Component<Props, State> {
               <img
                 src="https://s3.us-east-2.amazonaws.com/valpunk-cdn/happily/happily_logo.png"
                 style={{ width: 100, height: "auto" }}
-                onClick={() => Router.push("/")}
+                onClick={this.NagigateTo("/")}
               />
             </IconButton>
             <div style={{ flexGrow: 1 }} />

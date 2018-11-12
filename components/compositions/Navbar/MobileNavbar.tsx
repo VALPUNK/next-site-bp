@@ -39,6 +39,12 @@ class MobileNavbar extends React.Component<Props, State> {
     this.setState({ anchorEl: undefined })
   }
 
+  public NagigateTo = (routeName: string) => (
+    _event: React.MouseEvent<HTMLElement>,
+  ) => {
+    Router.push(routeName)
+  }
+
   public render() {
     // const { classes } = this.props
     const { anchorEl } = this.state
@@ -49,10 +55,11 @@ class MobileNavbar extends React.Component<Props, State> {
         <AppBar position="static" className={this.props.classes.root}>
           <Toolbar>
             <IconButton
-              // className={classes.menuButton}
               color="inherit"
               aria-label="Menu"
-              onClick={() => Router.push("/")}
+              onClick={
+                this.NagigateTo("/") // className={classes.menuButton}
+              }
             >
               <img
                 src="https://s3.us-east-2.amazonaws.com/valpunk-cdn/happily/happily_logo.png"
@@ -62,9 +69,10 @@ class MobileNavbar extends React.Component<Props, State> {
             <div style={{ flexGrow: 1 }} />
             <div>
               <IconButton
-                // className={classes.menuButton}
                 color="inherit"
-                onClick={this.handleMenu}
+                onClick={
+                  this.handleMenu // className={classes.menuButton}
+                }
                 aria-label="Menu"
                 style={{ color: "black" }}
               >
@@ -73,19 +81,13 @@ class MobileNavbar extends React.Component<Props, State> {
               <Menu
                 id="menu-appbar"
                 anchorEl={anchorEl}
-                anchorOrigin={{
-                  vertical: "top",
-                  horizontal: "right",
-                }}
-                transformOrigin={{
-                  vertical: "top",
-                  horizontal: "right",
-                }}
+                anchorOrigin={{ vertical: "top", horizontal: "right" }}
+                transformOrigin={{ vertical: "top", horizontal: "right" }}
                 open={open}
                 onClose={this.handleClose}
               >
-                <MenuItem onClick={() => Router.push("/how")}>How</MenuItem>
-                <MenuItem onClick={() => Router.push("/tryfree")}>
+                <MenuItem onClick={this.NagigateTo("/how")}>How</MenuItem>
+                <MenuItem onClick={this.NagigateTo("/tryfree")}>
                   Try Free
                 </MenuItem>
               </Menu>

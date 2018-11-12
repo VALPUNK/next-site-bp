@@ -2,14 +2,15 @@ import { withWidth } from "@material-ui/core"
 import { WithWidth } from "@material-ui/core/withWidth"
 import * as React from "react"
 import MobileTopBar from "./MobileNavbar"
-import MonitorNavbar from "./MonitorNavbar"
+import DesktopNavbar from "./DesktopNavbar"
 
-class Navbar extends React.PureComponent<WithWidth> {
+/** Test component description */
+export class Navbar extends React.PureComponent<WithWidth> {
   public render() {
     if (this.props.width === "xs" || this.props.width === "sm") {
       return <MobileTopBar />
     }
-    return <MonitorNavbar />
+    return <DesktopNavbar />
   }
 }
 
