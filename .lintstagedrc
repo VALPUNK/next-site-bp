@@ -1,9 +1,9 @@
 {
   "linters": {
-    "*.+(ts|tsx)": [
+    "*/**.+(ts|tsx)": [
       "tslint"
     ],
-    "*.+(js|jsx|ts|tsx|graphql)": [
+    "*/**.+(js|jsx|ts|tsx|graphql)": [
       "prettier --write",
       "git add"
     ]
