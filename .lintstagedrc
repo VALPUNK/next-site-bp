@@ -1,7 +1,7 @@
 {
   "linters": {
-    "{**/*.tsx, *.ts}": [
-      "tslint"
+    "{*.tsx, *.ts}": [
+      "tslint -c tslint.json"
     ],
     "*.+(js|jsx|ts|tsx|graphql)": [
       "prettier --write",
