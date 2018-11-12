@@ -1,9 +1,11 @@
+import "jest-dom/extend-expect"
 import * as React from "react"
-import ReactDOM from "react-dom"
+import { render } from "react-testing-library"
+import "react-testing-library/cleanup-after-each"
 import Button from "."
 
 test("renders a button with text", () => {
-  const div = document.createElement("div")
-  ReactDOM.render(<Button>Some Text</Button>, div)
-  expect(div.querySelector("span").textContent).toBe("Some Text")
+  const { getByText } = render(<Button>Some Text</Button>)
+  const button = getByText(/Some Text/i)
+  expect(button).toHaveTextContent(/Some Text/i)
 })
