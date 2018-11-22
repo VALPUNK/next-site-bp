@@ -5,14 +5,24 @@ import flush from "styled-jsx/server"
 import { ServerStyleSheet } from "styled-components"
 
 class MyDocument extends Document {
-  static getInitialProps({ renderPage }) {
-    const sheet = new ServerStyleSheet()
-    const page = renderPage(App => props =>
-      sheet.collectStyles(<App {...props} />),
-    )
-    const styleTags = sheet.getStyleElement()
-    return { ...page, styleTags }
-  }
+  // static getInitialProps({ renderPage }) {
+  //   const sheet = new ServerStyleSheet()
+
+  //   const page = renderPage(App => props =>
+  //     sheet.collectStyles(<App {...props} />),
+  //   )
+  //   const styleTags = sheet.getStyleElement()
+  //   return { ...page, styleTags }
+  // }
+  // static getInitialProps({ renderPage }) {
+  //   const sheet = new ServerStyleSheet()
+  //   const page = renderPage(App => props =>
+  //     sheet.collectStyles(<App {...props} />),
+  //   )
+  //   const styleTags = sheet.getStyleElement()
+  //   return { ...page, styleTags }
+  // }
+
   render() {
     const { pageContext } = this.props
 
@@ -21,16 +31,20 @@ class MyDocument extends Document {
         <Head>
           {/* <title>My page</title> */}
           <meta charSet="utf-8" />
+
           {/* Use minimum-scale=1 to enable GPU rasterization */}
           <meta
             name="viewport"
             content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
           />
+
           {/* PWA primary color */}
+
           <meta
             name="theme-color"
             content={pageContext.theme.palette.primary.main}
           />
+
           {/* <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
@@ -70,24 +84,31 @@ MyDocument.getInitialProps = ctx => {
 
   // Render app and page and get the context of the page with collected side effects.
   let pageContext
-  const page = ctx.renderPage(Component => {
-    const WrappedComponent = props => {
-      pageContext = props.pageContext
-      return <Component {...props} />
-    }
+  // const page = ctx.renderPage(Component => {
+  //   const WrappedComponent = props => {
+  //     pageContext = props.pageContext
+  //     return <Component {...props} />
+  //   }
 
-    WrappedComponent.propTypes = {
-      pageContext: PropTypes.object.isRequired,
-    }
+  //   WrappedComponent.propTypes = {
+  //     pageContext: PropTypes.object.isRequired,
+  //   }
 
-    return WrappedComponent
+  //   return WrappedComponent
+  // })
+
+  const sheet = new ServerStyleSheet()
+  const page = ctx.renderPage(App => props => {
+    pageContext = props.pageContext
+    return sheet.collectStyles(<App {...props} />)
   })
-
+  const styleTags = sheet.getStyleElement()
   return {
     ...page,
     pageContext,
     // Styles fragment is rendered after the app and page rendering finish.
-    styles: (
+    styles: [
+      ...styleTags,
       <React.Fragment>
         <style
           id="jss-server-side"
@@ -97,8 +118,8 @@ MyDocument.getInitialProps = ctx => {
           }}
         />
         {flush() || null}
-      </React.Fragment>
-    ),
+      </React.Fragment>,
+    ],
   }
 }
 
