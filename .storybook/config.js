@@ -12,11 +12,14 @@ const path = require("path")
 // const req = require.context("../components", true, /.stories.tsx$/)
 // const req = require("../components" + name + '/.stories.js$/')
 const req = require.context("../components", true, /\.stories\.tsx$/)
+const pages = require.context("../pages", true, /\.stories\.tsx$/)
 
 function loadStories() {
   require("./welcomeStory")
   req.keys().forEach(file => req(file))
-
+  // pages.keys().forEach(file => req(file))
+  // require("../pages/register/Signup/Signup.stories.tsx")
+  require("../pages/register/Register.stories.tsx")
   // require('../components/basic/Button/Button.stories.js');
   // You can require as many stories as you need.
 }

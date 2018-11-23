@@ -1,3 +1,4 @@
 import Layout from "./Layout"
+import Jumbotron from "./Jumbotron"
 
-export { Layout }
+export { Layout, Jumbotron }

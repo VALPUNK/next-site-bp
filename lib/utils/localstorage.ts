@@ -1,4 +1,5 @@
 import { OnBoardingState } from "~/lib/reducers/OnboardingReducer"
+import { AUTH_TOKEN } from "../constants/constants"
 
 export const loadState = () => {
   try {
@@ -19,4 +20,8 @@ export const saveState = (state: OnBoardingState) => {
   } catch (err) {
     // ignore
   }
+}
+
+export const saveToken = async (token: string) => {
+  await localStorage.setItem(AUTH_TOKEN, token)
 }
