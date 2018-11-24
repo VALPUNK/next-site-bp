@@ -2,7 +2,7 @@ import { Theme } from "@material-ui/core"
 import Grid from "@material-ui/core/Grid"
 import { withRouter, WithRouterProps } from "next/router"
 import * as React from "react"
-import { Authentication } from "~/components/special"
+import { Authentication } from "~/components/compositions"
 import { Jumbotron, Layout } from "~/components/templates"
 
 interface Props extends WithRouterProps {

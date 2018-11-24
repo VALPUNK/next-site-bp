@@ -1,100 +1,75 @@
 import AppBar from "@material-ui/core/AppBar"
 import IconButton from "@material-ui/core/IconButton"
 import Menu from "@material-ui/core/Menu"
-import MenuItem from "@material-ui/core/MenuItem"
-import { createStyles, withStyles, WithStyles } from "@material-ui/core/styles"
 import Toolbar from "@material-ui/core/Toolbar"
 import MenuIcon from "@material-ui/icons/Menu"
 import Router from "next/router"
 import * as React from "react"
-import { NavButtonProps } from "./index"
 
-const styles = () =>
-  createStyles({
-    root: { backgroundColor: "white", fontFamily: "Roboto" },
-  })
-interface Props extends WithStyles<typeof styles> {
+interface Props {
   history?: History
-  icon: string
+  icon?: string
+  children?: React.ReactNode
 }
 
-interface State {
-  auth: boolean
-  anchorEl: EventTarget & HTMLElement | null | undefined
-}
+const MobileNavbar = ({ icon, children }: Props) => {
+  const [anchorEl, setAnchorEl] = React.useState(null)
+  const open = Boolean(anchorEl)
 
-class MobileNavbar extends React.Component<Props, State> {
-  constructor(props: any) {
-    super(props)
-    this.state = {
-      auth: true,
-      anchorEl: null,
-    }
+  const [auth, setAuth] = React.useState(true)
+  const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget)
   }
 
-  public handleMenu = (event: React.MouseEvent<HTMLElement>) => {
-    this.setState({ anchorEl: event.currentTarget })
+  const handleClose = () => {
+    setAnchorEl(undefined)
   }
 
-  public handleClose = () => {
-    this.setState({ anchorEl: undefined })
-  }
-
-  public NagigateTo = (routeName: string) => (
+  const NavigateTo = (routeName: string) => (
     _event: React.MouseEvent<HTMLElement>,
   ) => {
     Router.push(routeName)
   }
 
-  public render() {
-    // const { classes } = this.props
-    const { anchorEl } = this.state
-    const open = Boolean(anchorEl)
-
-    return (
-      <div>
-        <AppBar position="static" className={this.props.classes.root}>
-          <Toolbar>
+  return (
+    <div>
+      <AppBar
+        position="static"
+        style={{ backgroundColor: "white", fontFamily: "Roboto" }}
+      >
+        <Toolbar>
+          <IconButton
+            color="inherit"
+            aria-label="Menu"
+            onClick={NavigateTo("/")}
+          >
+            <img src={icon} style={{ width: 80, height: "auto" }} />
+          </IconButton>
+          <div style={{ flexGrow: 1 }} />
+          <div>
             <IconButton
               color="inherit"
+              onClick={handleMenu}
               aria-label="Menu"
-              onClick={
-                this.NagigateTo("/") // className={classes.menuButton}
-              }
+              style={{ color: "black" }}
             >
-              <img
-                src={this.props.icon}
-                style={{ width: 80, height: "auto" }}
-              />
+              <MenuIcon />
             </IconButton>
-            <div style={{ flexGrow: 1 }} />
-            <div>
-              <IconButton
-                color="inherit"
-                onClick={
-                  this.handleMenu // className={classes.menuButton}
-                }
-                aria-label="Menu"
-                style={{ color: "black" }}
-              >
-                <MenuIcon />
-              </IconButton>
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorEl}
-                anchorOrigin={{ vertical: "top", horizontal: "right" }}
-                transformOrigin={{ vertical: "top", horizontal: "right" }}
-                open={open}
-                onClose={this.handleClose}
-              >
-                {this.props.children}
-              </Menu>
-            </div>
-          </Toolbar>
-        </AppBar>
-      </div>
-    )
-  }
+            <Menu
+              id="menu-appbar"
+              anchorEl={anchorEl}
+              anchorOrigin={{ vertical: "top", horizontal: "right" }}
+              transformOrigin={{ vertical: "top", horizontal: "right" }}
+              open={open}
+              onClose={handleClose}
+            >
+              {children}
+            </Menu>
+          </div>
+        </Toolbar>
+      </AppBar>
+    </div>
+  )
 }
 
-export default withStyles(styles, { withTheme: true })(MobileNavbar)
+export default MobileNavbar

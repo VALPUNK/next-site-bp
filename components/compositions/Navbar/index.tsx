@@ -28,7 +28,7 @@ const Navbar = ({ width }: NavbarProps) => {
   const NavComponent =
     width === "xs" || width === "sm" ? MobileTopBar : DesktopNavbar
 
-  const NagigateTo = (routeName: string) => (
+  const NavigateTo = (routeName: string) => (
     _event: React.MouseEvent<HTMLElement>,
   ) => {
     Router.push(routeName)
@@ -37,7 +37,7 @@ const Navbar = ({ width }: NavbarProps) => {
   return (
     <NavComponent icon="https://s3.us-east-2.amazonaws.com/valpunk-cdn/happily/happily_logo.png">
       {navButtons.map(item => (
-        <MenuItem key={item.text} onClick={NagigateTo(item.link)}>
+        <MenuItem key={item.text} onClick={NavigateTo(item.link)}>
           {item.text}
         </MenuItem>
       ))}
