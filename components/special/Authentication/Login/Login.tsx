@@ -12,38 +12,26 @@ interface Props {
   setName: (text: string) => void
 }
 
-export const Signup = () => {
-  const [name, setName] = React.useState("")
+export const Login = () => {
   const [email, setEmail] = React.useState("")
   const [password, setPassword] = React.useState("")
-  const [confirmPassword, setConfirmPassword] = React.useState("")
 
   const updateState = (e: React.ChangeEvent<HTMLInputElement>) => {
     switch (e.target.id) {
-      case "name":
-        setName(e.target.value)
-        break
-
       case "email":
         setEmail(e.target.value)
         break
-
       case "password":
         setPassword(e.target.value)
-        break
-
-      case "confirmPassword":
-        setConfirmPassword(e.target.value)
         break
       default:
         break
     }
   }
-  const signup = () => {
-    console.log(`${name} ${email} ${password} ${confirmPassword}`)
+  const login = () => {
+    console.log(`${email} ${password} `)
     // await this.props.client.resetStore()
     saveToken("123")
-
     // this.props.router.push("/dashboard")
   }
 
@@ -54,18 +42,6 @@ export const Signup = () => {
       justify="center"
       style={{ paddingBottom: 50 }}
     >
-      <Grid item={true} xs={11} md={8}>
-        <TextField
-          id="name"
-          label="NAME"
-          placeholder="Name"
-          style={{
-            width: "100%",
-          }}
-          margin="normal"
-          onChange={updateState}
-        />
-      </Grid>
       <Grid item={true} xs={11} md={8}>
         <TextField
           id="email"
@@ -90,30 +66,20 @@ export const Signup = () => {
           margin="normal"
           onChange={updateState}
         />
-      </Grid>{" "}
-      <Grid item={true} xs={11} md={8}>
-        <TextField
-          id="confirmPassword"
-          type="password"
-          label="CONFIRM PASSWORD"
-          placeholder="CONFIRM PASSWORD"
-          style={{
-            width: "100%",
-          }}
-          margin="normal"
-          onChange={updateState}
-        />
+      </Grid>
+      <Grid item={true} xs={12} md={8}>
+        <Typography style={{ textAlign: "right" }}>Forgot Password?</Typography>
       </Grid>
       <Grid item={true} xs={8} md={8}>
         <Button
-          onClick={signup}
+          onClick={login}
           variant="contained"
           style={{
             width: "100%",
             marginTop: 30,
           }}
         >
-          Sign Up
+          login
         </Button>
       </Grid>
     </Grid>

@@ -7,6 +7,7 @@ import Toolbar from "@material-ui/core/Toolbar"
 import MenuIcon from "@material-ui/icons/Menu"
 import Router from "next/router"
 import * as React from "react"
+import { NavButtonProps } from "./index"
 
 const styles = () =>
   createStyles({
@@ -14,7 +15,7 @@ const styles = () =>
   })
 interface Props extends WithStyles<typeof styles> {
   history?: History
-  title: string
+  icon: string
 }
 
 interface State {
@@ -62,7 +63,7 @@ class MobileNavbar extends React.Component<Props, State> {
               }
             >
               <img
-                src="https://s3.us-east-2.amazonaws.com/valpunk-cdn/happily/happily_logo.png"
+                src={this.props.icon}
                 style={{ width: 80, height: "auto" }}
               />
             </IconButton>
@@ -86,10 +87,7 @@ class MobileNavbar extends React.Component<Props, State> {
                 open={open}
                 onClose={this.handleClose}
               >
-                <MenuItem onClick={this.NagigateTo("/how")}>How</MenuItem>
-                <MenuItem onClick={this.NagigateTo("/tryfree")}>
-                  Try Free
-                </MenuItem>
+                {this.props.children}
               </Menu>
             </div>
           </Toolbar>

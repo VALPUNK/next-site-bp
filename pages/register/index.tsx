@@ -2,8 +2,8 @@ import { Theme } from "@material-ui/core"
 import Grid from "@material-ui/core/Grid"
 import { withRouter, WithRouterProps } from "next/router"
 import * as React from "react"
+import { Authentication } from "~/components/special"
 import { Jumbotron, Layout } from "~/components/templates"
-import Register from "./Register"
 
 interface Props extends WithRouterProps {
   theme: Theme
@@ -60,12 +60,7 @@ class Index extends React.Component<Props, State> {
           <Grid container={true} spacing={24}>
             <Grid item={true} xs={12}>
               <Grid container={true} justify="center" spacing={16}>
-                <Register
-                  {...this.props}
-                  value={this.state.value}
-                  handleChange={this.handleChange}
-                  handleChangeIndex={this.handleChangeIndex}
-                />
+                <Authentication />
               </Grid>
             </Grid>
           </Grid>

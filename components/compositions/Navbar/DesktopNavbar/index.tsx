@@ -1,12 +1,13 @@
 import AppBar from "@material-ui/core/AppBar"
 import Button from "@material-ui/core/Button"
+import IconButton from "@material-ui/core/IconButton"
+import MenuItem from "@material-ui/core/MenuItem"
 import { createStyles, withStyles, WithStyles } from "@material-ui/core/styles"
-import { ThemeOptions } from "@material-ui/core/styles/createMuiTheme"
 import Toolbar from "@material-ui/core/Toolbar"
 import Link from "next/link"
 import Router from "next/router"
 import * as React from "react"
-import IconButton from "@material-ui/core/IconButton"
+import { NavButtonProps } from "../index"
 
 const styles = () =>
   createStyles({
@@ -20,7 +21,9 @@ const styles = () =>
     },
   })
 
-interface Props extends WithStyles<typeof styles> {}
+interface Props extends WithStyles<typeof styles> {
+  icon: string
+}
 
 interface State {
   auth: boolean
@@ -59,18 +62,14 @@ class MonitorNavbar extends React.Component<Props, State> {
           <Toolbar variant="regular" className={this.props.classes.toolbar}>
             <IconButton color="inherit" aria-label="Menu">
               <img
-                src="https://s3.us-east-2.amazonaws.com/valpunk-cdn/happily/happily_logo.png"
+                src={this.props.icon}
                 style={{ width: 100, height: "auto" }}
                 onClick={this.NagigateTo("/")}
               />
             </IconButton>
             <div style={{ flexGrow: 1 }} />
-            <Link href="/#">
-              <Button style={{ color: "dodgerblue" }}>Item 1</Button>
-            </Link>
-            <Link href="/#">
-              <Button style={{ color: "dodgerblue" }}>Item 2</Button>
-            </Link>
+
+            {this.props.children}
           </Toolbar>
         </AppBar>
       </div>

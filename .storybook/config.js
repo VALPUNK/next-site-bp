@@ -17,10 +17,13 @@ const pages = require.context("../pages", true, /\.stories\.tsx$/)
 function loadStories() {
   require("./welcomeStory")
   req.keys().forEach(file => req(file))
+  pages.keys().forEach(file => pages(file))
+  // req.keys().forEach(file => req(path.resolve("../../src/components", file)))
   // pages.keys().forEach(file => req(file))
   // require("../pages/register/Signup/Signup.stories.tsx")
-  require("../pages/register/Register.stories.tsx")
-  // require('../components/basic/Button/Button.stories.js');
+  // require("../pages/register/Register.stories.tsx")
+  // require("../components/special/Authentication/Authentication.stories.tsx")
+  // require("../components/basic/Button/Button.stories.tsx")
   // You can require as many stories as you need.
 }
 
