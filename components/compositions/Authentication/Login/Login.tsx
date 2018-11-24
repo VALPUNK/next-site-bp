@@ -56,11 +56,8 @@ export const Login = () => {
             <Grid item={true} xs={8} md={8}>
               <Button
                 onClick={submitForm}
-                // onClick={signup}
                 disabled={error || isSubmitting}
                 variant="contained"
-                // onClick={reset}
-                // disabled={submitting || pristine}
                 style={{
                   width: "100%",
                   marginTop: 30,

@@ -1467,6 +1467,13 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-table@^6.7.17":
+  version "6.7.17"
+  resolved "https://registry.yarnpkg.com/@types/react-table/-/react-table-6.7.17.tgz#c974f80c448bcbafafc0473e541797a94aeb704f"
+  integrity sha512-JmbJ+5csZRmc8D7hdbglOx3Y+/V7Gssjs5ju9jfbCh0CQvNI4f4QSP6+DQk4UwGplsAHmqCuaHPLRCRuDq0Keg==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-transition-group@^2.0.8":
   version "2.0.14"
   resolved "https://registry.yarnpkg.com/@types/react-transition-group/-/react-transition-group-2.0.14.tgz#afd0cd785a97f070b55765e9f9d76ff568269001"
@@ -9144,6 +9151,13 @@ react-swipeable-views@^0.13.0:
     react-swipeable-views-core "^0.13.0"
     react-swipeable-views-utils "^0.13.0"
     warning "^4.0.1"
+
+react-table@^6.8.6:
+  version "6.8.6"
+  resolved "https://registry.yarnpkg.com/react-table/-/react-table-6.8.6.tgz#a0ad8b4839319052d5befc012603fb161e52ede3"
+  integrity sha1-oK2LSDkxkFLVvvwBJgP7Fh5S7eM=
+  dependencies:
+    classnames "^2.2.5"
 
 react-test-renderer@^16.0.0-0, react-test-renderer@^16.4.2:
   version "16.6.3"
