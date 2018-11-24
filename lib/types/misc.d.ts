@@ -6,6 +6,11 @@ declare module "@storybook/react" {
     addWithJSX(storyName: string, callback: RenderFunction): this
   }
 }
+declare module "react-final-form" {
+  export interface Story {
+    addWithJSX(storyName: string, callback: RenderFunction): this
+  }
+}
 
 declare module "react-jss" {
   export interface CSSProperties extends React.CSSProperties {
