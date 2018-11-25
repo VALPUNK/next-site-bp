@@ -2,13 +2,42 @@ import Grid from "@material-ui/core/Grid"
 import { withInfo } from "@storybook/addon-info"
 import { storiesOf } from "@storybook/react"
 import * as React from "react"
-import SimpleTable from "."
+import SimpleTable from "./SimpleTable"
+import HeaderCell from "./components/HederCell"
+import { RowRenderProps, TableCellRenderer } from "react-table"
+import Cell from "./components/Cell"
+import TableToolbar from "./components/TableToolbar"
+
+const columns = [
+  {
+    Header: <HeaderCell>First Name</HeaderCell>,
+    accessor: "firstName",
+    Cell: (row: RowRenderProps) => <Cell>{row.value}</Cell>,
+  },
+  {
+    Header: <HeaderCell>Last Name</HeaderCell>,
+    accessor: "lastName",
+    Cell: (row: RowRenderProps) => <Cell>{row.value}</Cell>,
+  },
+  {
+    Header: <HeaderCell>Profile Progress</HeaderCell>,
+    accessor: "progress",
+    Cell: (row: RowRenderProps) => <Cell>{row.value}</Cell>,
+  },
+  {
+    Header: <HeaderCell>Status</HeaderCell>,
+    accessor: "status",
+    Cell: (row: RowRenderProps) => <Cell>{row.value}</Cell>,
+  },
+]
+
+const Header: TableCellRenderer = () => <TableToolbar tableName="The Title" />
 ;(storiesOf("Table", module) as any)
   .addDecorator(withInfo({ text: `Description!`, inline: true }))
   .add("Simple Table", () => (
     <Grid container={true} justify="center" style={{ padding: 50 }}>
       <Grid item={true} xs={10} style={{ padding: 20 }}>
-        <SimpleTable data={data} />
+        <SimpleTable columns={columns} Header={Header} data={data} />
       </Grid>
     </Grid>
   ))

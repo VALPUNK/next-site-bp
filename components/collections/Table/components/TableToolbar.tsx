@@ -1,10 +1,9 @@
-import * as React from "react"
-import { createStyles, Theme, withStyles } from "@material-ui/core/styles"
 import { IconButton, Toolbar, Tooltip, Typography } from "@material-ui/core"
-import classNames from "classnames"
-import DeleteIcon from "@material-ui/icons/Delete"
-import FilterListIcon from "@material-ui/icons/FilterList"
+import { createStyles, Theme, withStyles } from "@material-ui/core/styles"
 import { lighten } from "@material-ui/core/styles/colorManipulator"
+import FilterListIcon from "@material-ui/icons/FilterList"
+import classNames from "classnames"
+import * as React from "react"
 
 const toolbarStyles = (theme: Theme) =>
   createStyles({
@@ -40,42 +39,24 @@ interface TableHeaderProps {
     actions: string
     title: string
   }
-  numSelected?: number
+  tableName?: string
 }
 
-const RegularToolbar = ({ numSelected, classes }: TableHeaderProps) => {
+const RegularToolbar = ({ classes, tableName }: TableHeaderProps) => {
   return (
-    <Toolbar
-      className={classNames(classes.root, {
-        [classes.highlight]: numSelected > 0,
-      })}
-    >
+    <Toolbar className={classNames(classes.root)}>
       <div className={classes.title}>
-        {numSelected > 0 ? (
-          <Typography color="inherit" variant="subtitle1">
-            {numSelected} selected
-          </Typography>
-        ) : (
-          <Typography variant="h6" id="tableTitle">
-            Nutrition
-          </Typography>
-        )}
+        <Typography variant="h6" id="tableTitle">
+          {tableName}
+        </Typography>
       </div>
       <div className={classes.spacer} />
       <div className={classes.actions}>
-        {numSelected > 0 ? (
-          <Tooltip title="Delete">
-            <IconButton aria-label="Delete">
-              <DeleteIcon />
-            </IconButton>
-          </Tooltip>
-        ) : (
-          <Tooltip title="Filter list">
-            <IconButton aria-label="Filter list">
-              <FilterListIcon />
-            </IconButton>
-          </Tooltip>
-        )}
+        <Tooltip title="Filter list">
+          <IconButton aria-label="Filter list">
+            <FilterListIcon />
+          </IconButton>
+        </Tooltip>
       </div>
     </Toolbar>
   )
