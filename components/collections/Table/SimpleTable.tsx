@@ -4,8 +4,8 @@ import Table from "@material-ui/core/Table"
 import * as React from "react"
 import ReactTable, { TableCellRenderer } from "react-table"
 import "react-table/react-table.css"
-import Cell from "./components/Cell"
-import Pagination from "./components/Pagination"
+import TableCell from "./components/TableCell"
+import TablePagination from "./components/TablePagination"
 
 const styles = (theme: Theme) =>
   createStyles({
@@ -35,14 +35,14 @@ const SimpleTable = ({ classes, columns, Header, data }: SimpleTableProps) => {
       <Table className={classes.table}>
         <ReactTable
           data={data}
-          PadRowComponent={() => <Cell>{""}</Cell>}
+          PadRowComponent={() => <TableCell>{""}</TableCell>}
           columns={[
             {
               Header,
               columns,
             },
           ]}
-          PaginationComponent={Pagination}
+          PaginationComponent={TablePagination}
           defaultPageSize={10}
           className="-striped -highlight"
         />

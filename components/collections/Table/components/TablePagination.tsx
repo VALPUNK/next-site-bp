@@ -1,8 +1,8 @@
-import TablePagination from "@material-ui/core/TablePagination"
+import MuiTablePagination from "@material-ui/core/TablePagination"
 import * as React from "react"
 import { PageSizeChangeFunction } from "react-table"
 
-export interface PaginationProps {
+export interface TablePaginationProps {
   pages?: number
   page?: number
   pageSize?: number
@@ -15,7 +15,9 @@ export interface PaginationProps {
   data?: any[]
 }
 
-export default class Pagination extends React.Component<PaginationProps> {
+export default class TablePagination extends React.Component<
+  TablePaginationProps
+> {
   constructor(props: any) {
     super(props)
     this.changePage = this.changePage.bind(this)
@@ -40,9 +42,9 @@ export default class Pagination extends React.Component<PaginationProps> {
 
   public render() {
     return (
-      <TablePagination
+      <MuiTablePagination
         rowsPerPageOptions={this.props.pageSizeOptions}
-        component="div"
+        // component="div"
         count={this.props.data.length}
         rowsPerPage={this.props.pageSize}
         page={this.props.page}

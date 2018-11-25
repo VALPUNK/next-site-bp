@@ -31,7 +31,7 @@ const toolbarStyles = (theme: Theme) =>
     },
   })
 
-interface TableHeaderProps {
+interface TableToolbarProps {
   classes?: {
     root: string
     highlight: string
@@ -42,7 +42,7 @@ interface TableHeaderProps {
   tableName?: string
 }
 
-const RegularToolbar = ({ classes, tableName }: TableHeaderProps) => {
+const TableToolbar = ({ classes, tableName }: TableToolbarProps) => {
   return (
     <Toolbar className={classNames(classes.root)}>
       <div className={classes.title}>
@@ -62,6 +62,4 @@ const RegularToolbar = ({ classes, tableName }: TableHeaderProps) => {
   )
 }
 
-const TableToolbar = withStyles(toolbarStyles)(RegularToolbar)
-
-export default TableToolbar
+export default withStyles(toolbarStyles)(TableToolbar)

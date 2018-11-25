@@ -5,7 +5,7 @@ import * as React from "react"
 interface HeaderCellProps {
   children: React.ReactNode
 }
-const HeaderCell = ({ children }: HeaderCellProps) => {
+const TableHeaderCell = ({ children }: HeaderCellProps) => {
   return (
     <TableRow>
       <TableCell component="th" scope="row" style={{ borderBottomWidth: 0 }}>
@@ -15,4 +15,4 @@ const HeaderCell = ({ children }: HeaderCellProps) => {
   )
 }
 
-export default HeaderCell
+export default TableHeaderCell
