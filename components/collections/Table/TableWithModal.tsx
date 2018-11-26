@@ -3,7 +3,7 @@ import Paper from "@material-ui/core/Paper"
 import { createStyles, Theme, withStyles } from "@material-ui/core/styles"
 import Table from "@material-ui/core/Table"
 import * as React from "react"
-import ReactTable, { Column, RowInfo, TableCellRenderer } from "react-table"
+import ReactTable, { RowInfo, TableCellRenderer } from "react-table"
 import "react-table/react-table.css"
 import TableCell from "./components/TableCell"
 import TablePagination from "./components/TablePagination"
@@ -36,7 +36,13 @@ export interface TableWithModalProps {
   columns: any[]
   Header: TableCellRenderer
   data: any[]
-  children?: (props: { clickedData: { data?: RowInfo } }) => React.ReactNode
+  children?: (
+    props: {
+      clickedData: { data?: any }
+      handleOpen: () => void
+      handleClose: () => void
+    },
+  ) => React.ReactNode
 }
 
 const TableWithModal = ({
@@ -47,7 +53,7 @@ const TableWithModal = ({
   children,
 }: TableWithModalProps) => {
   const [open, setOpen] = React.useState(false)
-  const [modalInfo, setModalinfo] = React.useState<{ data?: RowInfo }>({})
+  const [modalInfo, setModalinfo] = React.useState<{ data?: any }>({})
 
   const handleOpen = () => {
     setOpen(true)
@@ -75,7 +81,7 @@ const TableWithModal = ({
           getTdProps={(_state: any, _rowInfo: RowInfo) => {
             return {
               onClick: (_e: any, _handleOriginal: any) => {
-                setModalinfo({ data: _rowInfo })
+                setModalinfo({ data: _rowInfo.original })
                 handleOpen()
                 if (_handleOriginal) {
                   _handleOriginal()
@@ -93,6 +99,8 @@ const TableWithModal = ({
       >
         {children({
           clickedData: modalInfo,
+          handleOpen,
+          handleClose,
         })}
       </Modal>
     </Paper>

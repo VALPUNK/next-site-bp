@@ -35,7 +35,7 @@ const SimpleTable = ({ classes, columns, Header, data }: SimpleTableProps) => {
       <Table className={classes.table}>
         <ReactTable
           data={data}
-          PadRowComponent={() => <TableCell>{""}</TableCell>}
+          PadRowComponent={() => <TableCell />}
           columns={[
             {
               Header,

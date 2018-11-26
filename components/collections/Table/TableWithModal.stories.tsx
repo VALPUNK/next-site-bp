@@ -41,7 +41,7 @@ const Example = () => (
     <Grid item={true} xs={10} style={{ padding: 20 }}>
       <TableWithModal columns={columns} Header={Header} data={data}>
         {({ clickedData }) => {
-          if (!clickedData.data || !clickedData.data.original) {
+          if (!clickedData.data) {
             return <div>Loading...</div>
           }
           return (
@@ -52,15 +52,13 @@ const Example = () => (
                 left: "50%",
                 transform: `translate(-50%, -50%)`,
                 maxWidth: "80%",
-                width: 600,
                 padding: 16,
+                wordWrap: "normal",
               }}
             >
-              <Typography variant="h6" id="modal-title">
-                The id is {clickedData.data.original.id}
-              </Typography>
-              <Typography variant="subtitle1" id="simple-modal-description">
-                Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+              <Typography variant="h6">Clicked Content</Typography>
+              <Typography variant="subtitle1">
+                {JSON.stringify(clickedData.data)}
               </Typography>
             </Paper>
           )
